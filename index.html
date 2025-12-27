@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>雀魂 代行</title>
+  <meta name="description" content="雀魂の段位アップ代行。AI＋人間監督で最短段位上げ。各ステップの料金と目安日数を掲載。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0f1115; --card:#171a21; --ink:#e8ecf1; --muted:#b4bdc6; --accent:#4fd1c5; --warn:#ff6b6b; --success:#48bb78; }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+    .logo{font-weight:800;letter-spacing:.02em} .logo b{color:var(--accent)}
+    nav a{margin-left:18px;color:var(--muted)}
+
+    .section{padding:24px 0}
+    h1{font-size:clamp(28px,3.5vw,44px);margin:0 0 10px}
+    h2{font-size:clamp(22px,3vw,30px);margin:8px 0 16px}
+    h3{margin:10px 0 8px;font-size:18px}
+    .badge{display:inline-block;background:rgba(79,209,197,.15);border:1px solid rgba(79,209,197,.35);color:var(--accent);padding:6px 10px;border-radius:999px;font-size:12px;margin-bottom:12px}
+    .grid{display:grid;gap:18px}
+    .card{background:var(--card);border:1px solid #222532;border-radius:16px;padding:20px}
+    .muted{color:var(--muted)}
+
+    /* ヒーローセクション */
+    .hero{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      padding:60px 0;
+      gap:24px;
+    }
+    
+    .cta{display:flex;gap:12px;flex-wrap:wrap; justify-content:center;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:12px;border:1px solid transparent;background:var(--accent);color:#0b1116;font-weight:700}
+    .btn.alt{background:transparent;border-color:#2b303b;color:var(--ink)}
+    
+    .table{width:100%;border-collapse:collapse;margin-top:10px}
+    .table th,.table td{padding:12px;border-bottom:1px solid #2a2f3a;text-align:left;vertical-align:top}
+    .yen{font-variant-numeric:tabular-nums}
+
+    .note{color:var(--muted);font-size:14px;margin-top:8px}
+    .disclaimer{border-left:4px solid var(--warn);padding:10px 14px;background:#1a1010;color:#ffdede;border-radius:8px;margin-top:12px}
+
+    footer{margin:40px 0 10px;text-align:center;color:#7b8794;font-size:13px}
+
+    .supervision {
+      text-align: center;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .rank-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .rank-icons img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .feature-item { margin-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 24px; }
+    .feature-item:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+    .feature-item h3 { font-size: 1.4rem; margin-bottom: 12px; color: #4fd1c5; letter-spacing: 0.03em; }
+    .feature-item p { margin-bottom: 15px; line-height: 1.7; color: #cbd5e0; }
+    .feature-img { display: block; max-width: 200px; width: 100%; height: auto; border-radius: 6px; margin: 10px 0; opacity: 0.9; }
+    
+    .video-wrap {
+      width: 100%;
+      max-width: 720px;
+      margin: 16px 0;
+      aspect-ratio: 16/9;
+    }
+    .video-wrap > video { width: 100%; height: 100%; display: block; object-fit: contain; border-radius: 12px; }
+    
+    /* 悩みリスト */
+    .pain-list { list-style: none; padding: 0; margin: 16px 0; }
+    .pain-list li { background: rgba(255, 255, 255, 0.03); padding: 16px; border-radius: 8px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 600; }
+    .pain-icon { font-size: 24px; flex: 0 0 auto; }
+
+    /* FAQ用スタイル */
+    .faq-item { border-bottom: 1px solid #2a2f3a; padding: 16px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-weight: 700; color: var(--ink); margin-bottom: 8px; display:flex; align-items:center; gap:8px; }
+    .faq-q::before { content:"Q."; color:var(--accent); font-weight:800; }
+    .faq-a { color: var(--muted); line-height: 1.6; padding-left: 24px; font-size: 15px; }
+
+    /* 信頼性強調ボックス */
+    .trust-box {
+      border: 1px solid var(--success);
+      background: rgba(72, 187, 120, 0.1);
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .trust-icon { font-size: 32px; flex: 0 0 auto; }
+    .trust-content h4 { margin: 0 0 6px; color: var(--success); font-size: 1.1rem; }
+    .trust-content p { margin: 0; font-size: 14px; color: #e8ecf1; line-height: 1.5; }
+
+    /* 実績グラフ風プレースホルダー */
+    .chart-placeholder {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(79,209,197,0.1) 0%, rgba(23,26,33,1) 100%);
+      border: 1px dashed var(--muted);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      margin-top: 10px;
+      font-size: 14px;
+      padding: 20px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">🀄 <b>Jantama</b> Daiko</div>
+      <nav>
+        <a href="#features">こだわり</a>
+        <a href="#steps">料金</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="supervision">
+        <span class="badge">AI＋魂天経験者による監修</span>
+        <div class="rank-icons">
+          <img src="show.png" alt="初心" />
+          <img src="show-2.png" alt="雀士" />
+          <img src="show-3.png" alt="雀傑" />
+          <img src="show-4.png" alt="雀豪" />
+          <img src="show-5.png" alt="雀聖" />
+          <img src="show-6.png" alt="魂天" />
+        </div>
+      </div>
+
+      <h1>
+        「玉の間」での知的な駆け引きへ――。<br>
+        確かな実力であなたを次のステージへ導きます。
+      </h1>
+
+      <p class="muted">
+        <strong>※ 現在は四麻のみ受付しています。</strong>
+      </p>
+      
+      <div class="cta">
+        <a class="btn" href="https://forms.gle/Njk1pomrBypMCMUZ8" target="_blank" rel="noopener noreferrer">
+          今すぐ問い合わせる
+        </a>
+        <a class="btn alt" href="#steps">料金を見る</a>
+      </div>
+    </section>
+
+    <section id="worries" class="section">
+      <h2>🤔 このような経験はありませんか？</h2>
+      <div class="card">
+        <p class="muted">日々のプレイで感じるそのストレス、もう一人で抱え込む必要はありません。</p>
+        <ul class="pain-list">
+          <li>
+            <span class="pain-icon">💥</span>
+            <span>「自分が親の時に限って、他家に満貫・跳満をツモられる」理不尽な親被り</span>
+          </li>
+          <li>
+            <span class="pain-icon">🤯</span>
+            <span>「牌操作」を疑いたくなるような、昇段戦目前での地獄モード</span>
+          </li>
+          <li>
+            <span class="pain-icon">⏳</span>
+            <span>休日を丸一日費やしたのに、結局ポイントが減って終わる徒労感</span>
+          </li>
+        </ul>
+        <p class="muted" style="margin-top: 10px;">
+          その停滞を打破するために、<strong>「代行」</strong>という賢い選択肢があります。<br>
+          当サービスがあなたの代わりに確実な打ち回しを行い、適正なステージ（玉の間・王座の間）への到達をサポートします。
+        </p>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>✨ サービスのこだわり</h2>
+      <div class="card">
+        
+        <div class="trust-box">
+          <div class="trust-icon">🛡️</div>
+          <div class="trust-content">
+            <h4>金銭トラブルを「仕組み」で解決</h4>
+            <p>仲介サイト「ゲームトレード」を利用することで、作業完了まで代金は運営が預かります。納品確認ができるまで代金は支払われないため、持ち逃げ等のリスクをシステム的に排除しています。</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <h3>🤖 感情を排した「完全理論値」の打牌</h3>
+          <p>
+            AIと魂天監修の融合により、人間には不可能な「常にブレない最適解」を打ち続けます。<br>
+            感情によるミスをゼロにし、最短ルートで目標段位まで引き上げます。
+          </p>
+          <div class="video-wrap">
+            <video controls preload="metadata" playsinline poster="./poster.png">
+              <source src="./progress.mp4" type="video/mp4" />
+              お使いのブラウザは video タグに対応していません。
+            </video>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <h3>⏳ 数百時間の「作業」をショートカット</h3>
+          <p>
+            昇段にかかる時間を当サービスに任せることで、あなたは「結果」だけを受け取り、趣味や仕事に有意義な時間を使えます。
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <h3>📚 あなたのアカウントが「最強の教科書」に</h3>
+          <p>
+            代行完了後、AIと魂天監修による対局の「牌譜（ログ）」はすべて残ります。<br>
+            「なぜその牌を切ったのか？」―― 昇段するための立ち回りを、ご自身の牌譜で見直すことができるため、強くなるための教材としても活用いただけます。
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <h3>🔒 BANリスクを極限まで排除する「人間模倣」技術</h3>
+          <p>
+            ただ強いだけではありません。打牌速度のゆらぎ調整や、人間らしい挙動の再現、接続環境の徹底管理により、機械的な操作を回避。アカウントの安全性を技術的に担保します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="steps" class="section">
+      <h2>💰 料金目安</h2>
+      <div class="card">
+      <p class="muted"><strong>現在のptに関わらず、料金は一律でご案内いたします。</strong></p>
+        <table class="table">
+          <thead>
+            <tr><th>段位</th><th>料金</th><th>目安日数</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>初心1 → 初心2</td><td class="yen">¥500</td><td>1日以内</td></tr>
+            <tr><td>初心2 → 初心3</td><td class="yen">¥500</td><td>1日以内</td></tr>
+            <tr><td>初心3 → 雀士1</td><td class="yen">¥500</td><td>1日以内</td></tr>
+            <tr><td>雀士1 → 雀士2</td><td class="yen">¥1,000</td><td>1日以内</td></tr>
+            <tr><td>雀士2 → 雀士3</td><td class="yen">¥1,000</td><td>1日以内</td></tr>
+            <tr><td>雀士3 → 雀傑1</td><td class="yen">¥1,500</td><td>1日以内</td></tr>
+            <tr><td>雀傑1 → 雀傑2</td><td class="yen">¥2,000</td><td>1日以内</td></tr>
+            <tr><td>雀傑2 → 雀傑3</td><td class="yen">¥2,500</td><td>2日以内</td></tr>
+            <tr><td>雀傑3 → 雀豪1</td><td class="yen">¥3,500</td><td>3日以内</td></tr>
+            <tr><td>雀豪1 → 雀豪2</td><td class="yen">¥15,000</td><td>10日以内</td></tr>
+            <tr><td>雀豪2 → 雀豪3</td><td class="yen">¥20,000</td><td>14日以内</td></tr>
+            <tr><td>雀豪3 → 雀聖1</td><td class="yen">¥30,000</td><td>20日以内</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <section id="faq" class="section">
+      <h2>❓ よくある質問</h2>
+      <div class="card">
+        <div class="faq-item">
+          <div class="faq-q">アカウント停止（BAN）のリスクはありますか？</div>
+          <div class="faq-a">
+            サービスの性質上リスクはゼロではありませんが、人間らしい打牌間隔の調整や、24時間連続稼働を避けるなどの安全対策を徹底しており、現時点でのBAN報告はございません。
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">代行中に自分のアカウントでログインできますか？</div>
+          <div class="faq-a">
+            同時ログインによる検知を防ぐため、代行作業中のログインはお控えいただいております。作業完了後、即座にご連絡いたします。
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">依頼後の個人情報は残りますか？</div>
+          <div class="faq-a">
+            お預かりしたアカウント情報は、作業完了後速やかに削除いたします。個人情報の保護には最大限の注意を払っております。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="notice" class="section">
+      <h2>⚠️ ご依頼に際してのお願い</h2>
+      <div class="card">
+        <ul>
+          <li>代行中の無断ログインはご遠慮ください。</li>
+          <li>接続が途切れた際には再度の認証コードをご提示いただく場合がございます。</li>
+          <li>コイン不足の際は補充をお願いすることがございます。</li>
+        </ul>
+        <div class="disclaimer">
+          重要：AI利用の性質上、規約抵触・アカウント停止の可能性があります。依頼は自己責任でお願いいたします。
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>📩 お問い合わせ方法</h2>
+      <div class="card">
+        <ul>
+          <li>
+            <a href="https://gametrade.jp" target="_blank" rel="noopener noreferrer">
+              ゲームトレード
+            </a>
+            アカウントをお持ちの方は、
+            <a href="https://gametrade.jp/mahjongsoul/exhibits/239661597" target="_blank" rel="noopener noreferrer">
+              こちら
+            </a>
+            からご依頼ください。<strong>（※推奨・安心）</strong>
+          </li>
+          <li>
+            <a class="btn" href="https://forms.gle/Njk1pomrBypMCMUZ8" target="_blank" rel="noopener noreferrer">
+              今すぐ問い合わせる
+            </a>
+            を押し、Googleフォームを送信してください。
+          </li>
+          <li>
+            ご質問のある方は、X（Twitter）アカウントまでご連絡ください：  
+            <a href="https://twitter.com/C7oS4pnAjy13907" target="_blank" rel="noopener noreferrer">@C7oS4pnAjy13907</a>
+          </li>
+        </ul>
+        <div class="disclaimer">
+          近年、RMT（リアルマネートレード）によるトラブルが増えています。<br>
+          トラブル防止のため、<strong>代金一時預かりシステムのある「ゲームトレード」経由</strong>でのご依頼を強く推奨いたします。
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2025 Jantama Daiko</footer>
+  </div>
+</body>
+</html>
